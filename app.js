@@ -1,6 +1,6 @@
 const config = require('./utils/config')
 const express = require('express')
-const path = require('path');
+const path = require('path')
 require('express-async-errors')
 const app = express()
 const cors = require('cors')
@@ -23,7 +23,7 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 app.use(cors())
 app.use(express.json())
 app.use(middleware.tokenExtractor)
-app.use(express.static(path.resolve(__dirname, './bloglist-frontend/build')));
+app.use(express.static(path.resolve(__dirname, './bloglist-frontend/build')))
 app.use('/api/users', usersRouter)
 app.use('/api/blogs', blogsRouter)
 app.use('/api/login', loginRouter)
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, './bloglist-frontend/build', 'index.html'));
+  response.sendFile(path.resolve(__dirname, './bloglist-frontend/build', 'index.html'))
 })
 
 app.use(middleware.unknownEndpoint)
