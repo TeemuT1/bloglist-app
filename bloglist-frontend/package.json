@@ -26,9 +26,7 @@
     "test:e2e": "cypress run"
   },
   "eslintConfig": {
-    "extends": ["react-app",
-    "plugin:cypress/recommended"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
