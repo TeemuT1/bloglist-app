@@ -5,7 +5,10 @@ import Table from 'react-bootstrap/Table'
 
 const Blogs = () => {
 
-  const blogs = useSelector(state => state.blogs)
+  const compareLikes = (a, b) => { return b.likes - a.likes }
+  const blogs = useSelector(
+    state => state.blogs.slice().sort(compareLikes))
+
 
   return (
     <div>

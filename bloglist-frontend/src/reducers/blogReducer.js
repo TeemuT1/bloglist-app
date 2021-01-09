@@ -1,8 +1,6 @@
 import blogService from '../services/blogs'
 import { setNotification } from './notificationReducer'
 
-const compareLikes = (a, b) => { return b.likes - a.likes }
-
 const blogReducer = (state = [], action) => {
 
   switch(action.type) {
@@ -23,7 +21,7 @@ const blogReducer = (state = [], action) => {
       ...blogToLike,
       likes: blogToLike.likes + 1
     }
-    return state.map(blog => blog.id !== action.data ? blog : changedBlog).slice().sort(compareLikes)
+    return state.map(blog => blog.id !== action.data ? blog : changedBlog)
   }
 
   case 'NEW_BLOG': {
@@ -101,7 +99,7 @@ export const initializeBlogs = () => {
     const blogs = await blogService.getAll()
     dispatch({
       type: 'INIT_BLOGS',
-      data: blogs.slice().sort(compareLikes)
+      data: blogs//.slice().sort(compareLikes)
     })
   }
 }

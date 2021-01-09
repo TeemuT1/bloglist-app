@@ -103,7 +103,7 @@ const App = () => {
           <Blog blog={ displayedBlog }/>
         </Route>
 
-        <Route path="/blogs">
+        <Route path="/">
           {blogForm()}
           <Blogs/>
         </Route>

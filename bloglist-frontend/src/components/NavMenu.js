@@ -15,7 +15,7 @@ const NavMenu = ({ handleLogout }) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#" as="span">
-              <Link id="nav-link-blogs" to="/blogs">Blogs</Link>
+              <Link id="nav-link-blogs" to="/">Blogs</Link>
             </Nav.Link>
             <Nav.Link href="#" as="span">
               <Link id="nav-link-users" to="/users">Users</Link>

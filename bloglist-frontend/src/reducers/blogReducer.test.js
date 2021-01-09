@@ -31,7 +31,7 @@ describe('blogReducer', () => {
     ]
     const action = {
       type: 'LIKE_BLOG',
-      data: '5fcfc6d7f10a062bd063dfde'
+      data: '5f61df674524a75684c80572'
 
     }
 
@@ -39,6 +39,6 @@ describe('blogReducer', () => {
     const newState = blogReducer(state, action)
 
     expect(newState).toHaveLength(2)
-    expect(newState[1].likes).toBe(10)
+    expect(newState[0].likes).toBe(10)
   })
 })

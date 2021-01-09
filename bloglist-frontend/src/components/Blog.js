@@ -42,29 +42,41 @@ const Blog = ({ blog }) => {
   return (
     <div className='blog' style={blogStyle}>
       <h2>Blog details</h2>
+
       <Table striped>
         <tbody>
+
           <tr className='blog-info'>
             <td>{blog.title} by {blog.author}</td>
           </tr>
-          <tr>
-            <td className='blog-url'>Url: {blog.url} </td>
+
+          <tr className='blog-url'>
+            <td>Url: {blog.url}</td>
           </tr>
-          <tr className='blog-likes'><td>
-            Likes: <span className='like-value'>{blog.likes} </span>
-            <Button className='like-button' variant='primary' onClick={() => dispatch(likeBlog(blog.id))}>like</Button>
-          </td></tr>
-          <tr><td>
-            Added by: {blog.user.name}
-          </td></tr>
+
+          <tr className='blog-likes'>
+            <td>Likes: <span className='like-value'>{blog.likes} </span>
+              <Button className='like-button' variant='primary'
+                onClick={() => dispatch(likeBlog(blog.id))}>like</Button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Added by: {blog.user.name}</td>
+          </tr>
+
         </tbody>
       </Table>
+
       <div style={showButtonToOwner}>
         <Button variant='danger' onClick={() => dispatch(deleteBlog(blog.id))}>remove blog</Button>
       </div>
+
       <hr/>
+
       <div className='comments'>
         <h3 className='comments-heading'>Comments</h3>
+
         <Form onSubmit={handleComment}>
           <Form.Control
             id='newComment'
@@ -74,19 +86,16 @@ const Blog = ({ blog }) => {
           <Button id='add-comment-button' variant='primary' type="submit">add comment</Button>
         </Form>
 
-        <ul>
+        <ul className='comment-list'>
           {blog.comments.map(comment =>
-            <div key={ comment.id } className='comment'>
-              <div>
-                <li>{comment.comment}</li>
-              </div>
+            <div key={ comment.id } className='comment-item'>
+              <li>{comment.comment}</li>
             </div>
           )}
         </ul>
-      </div>
 
+      </div>
     </div>
   )
-
 }
 export default Blog
